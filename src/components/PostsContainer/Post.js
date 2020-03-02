@@ -5,11 +5,12 @@ import LikeSection from "./LikeSection";
 import PostHeader from "./PostHeader";
 
 import "./Posts.css";
+import dummyData from "../../dummy-data";
 
 // pass props in this file to
 const Post = props => {
   // set up state for the likes
-  const [likes, setLikes] = useState(props.post.likes);
+  const [likes, setLikes] = useState(dummyData);
   return (
     <div className="post-border">
       <PostHeader
@@ -23,7 +24,7 @@ const Post = props => {
           src={props.post.imageUrl}
         />
       </div>
-      <LikeSection />
+      <LikeSection likes={props.likes} setLikes={props.likes + 1} />
       <CommentSection
         postId={props.post.imageUrl}
         comments={props.post.comments}
